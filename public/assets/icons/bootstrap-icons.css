@@ -1,0 +1,35 @@
+@font-face {
+  font-display: block;
+  font-family: "bootstrap-icons";
+  src: url("bootstrap-icons.woff2") format("woff2"),
+       url("bootstrap-icons.woff") format("woff");
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -0.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bi-telephone-fill::before { content: "\f5c1"; }
+.bi-whatsapp::before { content: "\f618"; }
+.bi-person-circle::before { content: "\f4d7"; }
+.bi-search::before { content: "\f52a"; }
+.bi-exclamation-circle::before { content: "\f333"; }
+.bi-arrow-left::before { content: "\f12f"; }
+.bi-people::before { content: "\f4cf"; }
+.bi-book::before { content: "\f194"; }
+.bi-briefcase::before { content: "\f1d4"; }
+.bi-info-circle::before { content: "\f431"; }
+.bi-book-half::before { content: "\f191"; }
+.bi-check-circle::before { content: "\f26a"; }
+.bi-person::before { content: "\f4e1"; }

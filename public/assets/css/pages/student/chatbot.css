@@ -1,0 +1,132 @@
+/* =================================================================
+    SITECRAFT - Chatbot del alumno
+    Estilos del contenedor de conversacion, mensajes y formulario.
+    ================================================================= */
+
+.chatbot-page__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.chatbot-page__header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.chat-window {
+    background: #fff;
+    border: 1px solid #e6e8ec;
+    border-radius: 14px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.chat-window__messages {
+    max-height: 58vh;
+    overflow: auto;
+    padding: 1rem;
+    background: linear-gradient(180deg, #f8fafc 0%, #f2f5f7 100%);
+}
+
+.chat-msg {
+    display: flex;
+    margin-bottom: 0.8rem;
+}
+
+.chat-msg--user {
+    justify-content: flex-end;
+}
+
+.chat-msg__bubble {
+    max-width: min(720px, 88%);
+    padding: 0.7rem 0.9rem;
+    border-radius: 12px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.chat-msg--assistant .chat-msg__bubble {
+    background: #ffffff;
+    color: #121619;
+    border: 1px solid #e5eaef;
+}
+
+.chat-msg--user .chat-msg__bubble {
+    background: #111827;
+    color: #fff;
+}
+
+.chat-window__form {
+    border-top: 1px solid #e6e8ec;
+    padding: 1rem;
+    background: #fff;
+}
+
+@media (max-width: 768px) {
+    .chat-window__messages {
+        max-height: 52vh;
+    }
+}
+
+/* --- Chips de preguntas sugeridas --- */
+.chat-suggestions {
+    border-top: 1px solid #e6e8ec;
+    background: #f8fafc;
+}
+
+.chat-suggestions__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+    padding: 0.55rem 1rem;
+    background: none;
+    border: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: color 0.15s;
+}
+
+.chat-suggestions__toggle:hover {
+    color: #111827;
+}
+
+.chat-suggestions__chevron {
+    font-size: 0.7rem;
+}
+
+.chat-suggestions__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0 1rem 0.75rem;
+}
+
+.chat-suggestion-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 999px;
+    background: #fff;
+    color: #111827;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    white-space: nowrap;
+}
+
+.chat-suggestion-chip:hover {
+    background: #111827;
+    border-color: #111827;
+    color: #fff;
+}

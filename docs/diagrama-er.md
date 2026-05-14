@@ -1,0 +1,214 @@
+# Diagrama entidad-relación
+
+## Mermaid ERD
+
+```mermaid
+erDiagram
+    USERS {
+        bigint id PK
+        varchar full_name
+        varchar email UK
+        varchar password_hash
+        varchar phone
+        boolean is_active
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ROLES {
+        smallint id PK
+        varchar code UK
+        varchar name
+    }
+
+    USER_ROLES {
+        bigint user_id PK, FK
+        smallint role_id PK, FK
+        timestamp created_at
+    }
+
+    COURSES {
+        bigint id PK
+        varchar slug UK
+        varchar title
+        text description
+        decimal price
+        char currency
+        int duration_days
+        boolean is_published
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    COURSE_TEACHERS {
+        bigint course_id PK, FK
+        bigint user_id PK, FK
+        timestamp assigned_at
+    }
+
+    ENROLLMENTS {
+        bigint id PK
+        bigint user_id FK
+        bigint course_id FK
+        enum enrollment_status
+        datetime started_at
+        datetime ends_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PAYMENTS {
+        bigint id PK
+        bigint enrollment_id FK
+        decimal amount
+        char currency
+        enum method
+        enum payment_status
+        varchar external_reference
+        datetime due_at
+        datetime paid_at
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    BADGES {
+        bigint id PK
+        varchar code UK
+        varchar name
+        text description
+        varchar image_url
+        boolean is_active
+        timestamp created_at
+    }
+
+    USER_BADGES {
+        bigint user_id PK, FK
+        bigint badge_id PK, FK
+        bigint course_id FK
+        datetime earned_at PK
+    }
+
+    STUDY_LOGS {
+        bigint id PK
+        bigint enrollment_id FK
+        date studied_on
+        int minutes_spent
+        timestamp created_at
+    }
+
+    ATTENDANCE_LOGS {
+        bigint id PK
+        bigint enrollment_id FK
+        date attended_on
+        boolean present
+        varchar source
+        timestamp created_at
+    }
+
+    PROGRESS_SUMMARY {
+        bigint enrollment_id PK, FK
+        int total_minutes
+        int consecutive_days
+        decimal completion_percent
+        timestamp updated_at
+    }
+
+    NUTRITION_LOGS {
+        bigint id PK
+        bigint enrollment_id FK
+        date logged_on
+        json meals_json
+        varchar mood
+        text notes
+        timestamp created_at
+    }
+
+    CHATBOT_CONFIGS {
+        bigint id PK
+        bigint course_id FK
+        varchar module_key
+        text system_prompt
+        text welcome_prompt
+        boolean is_enabled
+        int max_tokens
+        decimal temperature
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    CHAT_MESSAGES {
+        bigint id PK
+        bigint user_id FK
+        bigint course_id FK
+        bigint enrollment_id FK
+        enum message_role
+        text content
+        json meta_json
+        timestamp created_at
+    }
+
+    NOTIFICATIONS {
+        bigint id PK
+        bigint user_id FK
+        varchar type
+        enum channel
+        varchar title
+        text body
+        enum status
+        varchar related_entity_type
+        bigint related_entity_id
+        timestamp created_at
+        datetime sent_at
+        datetime read_at
+    }
+
+    MESSAGE_QUEUE {
+        bigint id PK
+        bigint notification_id FK
+        bigint user_id FK
+        enum channel
+        json payload_json
+        enum queue_status
+        int attempts
+        int max_attempts
+        datetime available_at
+        datetime processed_at
+        text last_error
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    USERS ||--o{ USER_ROLES : has
+    ROLES ||--o{ USER_ROLES : assigns
+
+    USERS ||--o{ COURSE_TEACHERS : teaches
+    COURSES ||--o{ COURSE_TEACHERS : has
+
+    USERS ||--o{ ENROLLMENTS : enrolls
+    COURSES ||--o{ ENROLLMENTS : receives
+
+    ENROLLMENTS ||--o{ PAYMENTS : generates
+    ENROLLMENTS ||--o{ STUDY_LOGS : tracks
+    ENROLLMENTS ||--o{ ATTENDANCE_LOGS : records
+    ENROLLMENTS ||--|| PROGRESS_SUMMARY : summarizes
+    ENROLLMENTS ||--o{ NUTRITION_LOGS : stores
+
+    USERS ||--o{ USER_BADGES : earns
+    BADGES ||--o{ USER_BADGES : awards
+    COURSES o|--o{ USER_BADGES : contextualizes
+
+    COURSES ||--|| CHATBOT_CONFIGS : configures
+    USERS ||--o{ CHAT_MESSAGES : sends
+    COURSES o|--o{ CHAT_MESSAGES : scopes
+    ENROLLMENTS o|--o{ CHAT_MESSAGES : contextualizes
+
+    USERS ||--o{ NOTIFICATIONS : receives
+    NOTIFICATIONS o|--o{ MESSAGE_QUEUE : queues
+    USERS o|--o{ MESSAGE_QUEUE : targets
+```
+
+## Nota
+
+- `notifications.related_entity_type` y `notifications.related_entity_id` forman una relación polimórfica lógica; no es una clave foránea física a una tabla concreta.
+- `course_teachers` y `user_roles` resuelven relaciones muchos-a-muchos.
+- `progress_summary` es una tabla de resumen derivada de actividad real (`study_logs` y `attendance_logs`).

@@ -1,0 +1,14 @@
+/* =================================================================
+   SITECRAFT – Estilos específicos del curso:
+   Entrenador Personal Nivel I (entrenador-personal-nivel-i)
+
+   Se carga DESPUÉS de detail.css, así que aquí puedes:
+   · Sobreescribir colores del hero para este curso.
+   · Añadir imágenes de fondo o texturas propias.
+   · Ajustar tipografía o componentes únicos de este curso.
+   ================================================================= */
+
+/* Ejemplo: cambiar el color de acento del hero para este curso */
+/* .course-hero {
+    background: linear-gradient(135deg, #0d1b0d 0%, #1a3a1a 100%);
+} */

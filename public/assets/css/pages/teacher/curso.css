@@ -1,0 +1,70 @@
+/* ============================================================
+   Teacher · Administración de curso
+   ============================================================ */
+
+/* ── Título ── */
+.teacher-curso__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #050505;
+    line-height: 1.2;
+}
+
+/* ── Card principal ── */
+.teacher-curso__card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+    overflow: hidden;
+}
+
+.teacher-curso__card-header {
+    background: #050505;
+    padding: 1rem 1.5rem;
+}
+
+.teacher-curso__card-title {
+    color: #d7f205;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.teacher-curso__card-body {
+    padding: 1.5rem;
+}
+
+/* ── Avatar inicial ── */
+.teacher-curso__avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #d7f205;
+    color: #050505;
+    font-weight: 700;
+    font-size: .85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ── Tabla ── */
+.table thead.table-dark th {
+    background: #111;
+    color: #d7f205;
+    border-color: #333;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.table tbody tr:hover {
+    background: #f8ffe0;
+}
+
+/* ── Progress bar ── */
+.progress {
+    background: #e9ecef;
+    border-radius: 4px;
+}

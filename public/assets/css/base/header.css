@@ -1,0 +1,378 @@
+/* =================================================================
+   SITECRAFT – Header & Navbar (cargado en TODAS las páginas)
+   ================================================================= */
+
+/* ── Topbar (franja amarilla) ─────────────────────────────────── */
+.topbar {
+    background: var(--color-highlight);
+    padding: 1rem 0;
+}
+
+.topbar__inner,
+.branding-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.topbar__contact {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.topbar__contact i {
+    margin-right: 0.35rem;
+}
+
+.topbar__actions {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.user-menu {
+    position: relative;
+}
+
+.user-profile-trigger {
+    background: transparent;
+    border: none;
+    color: var(--color-dark);
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.35rem;
+    transition: background-color 0.2s ease;
+}
+
+.user-profile-trigger:hover {
+    background-color: rgba(5, 5, 5, 0.1);
+}
+
+.user-profile-trigger i {
+    font-size: 1.3rem;
+}
+
+/* ── Botón de Notificaciones ──────────────────────────────────── */
+.notifications-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #dc3545;
+    color: #fff;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-name-text {
+    display: none;
+}
+
+.user-profile-dropdown {
+    background: #fff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+    min-width: 220px;
+}
+
+.user-profile-dropdown .dropdown-item {
+    color: var(--color-dark);
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 0.3rem;
+    transition: background-color 0.2s ease;
+}
+
+.user-profile-dropdown .dropdown-item:hover {
+    background-color: #f8ffe0;
+    color: var(--color-dark);
+}
+
+.user-profile-dropdown .dropdown-item.text-danger {
+    color: #dc3545 !important;
+}
+
+.user-profile-dropdown .dropdown-item.text-danger:hover {
+    background-color: #f8d7da;
+}
+
+.user-profile-dropdown .dropdown-divider {
+    margin: 0.3rem 0;
+    opacity: 0.2;
+}
+
+.user-name i {
+    font-size: 1.2rem;
+}
+
+.custom-outline {
+    border-width: 2px;
+    border-color: #fff;
+    color: var(--color-dark);
+    background: transparent;
+    border-radius: 0.55rem;
+    padding-inline: 1rem;
+}
+
+.custom-outline:hover {
+    background: #fff;
+    border-color: #fff;
+    color: var(--color-dark);
+}
+
+/* ── Barra de branding ────────────────────────────────────────── */
+.branding-bar {
+    background: #fff;
+    padding: 1.35rem 0;
+}
+
+.brand-mark {
+    display: inline-flex;
+    flex-direction: column;
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: lowercase;
+    font-size: 3.5rem;
+}
+
+.brand-mark__sitecraft { color: #111; }
+.brand-mark__accent    { color: #bfd500; }
+
+.brand-mark small {
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: 0.5rem;
+}
+
+/* ── Buscador ─────────────────────────────────────────────────── */
+.search-box {
+    width: min(100%, 430px);
+    position: relative;
+}
+
+.search-box input {
+    height: 56px;
+    border-radius: 0.9rem;
+    border: 1px solid #d8dce0;
+    padding-right: 4rem;
+    font-size: 1.05rem;
+}
+
+.search-box button {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    font-size: 1.45rem;
+    color: #b8bcc1;
+}
+
+/* ── Navbar principal ─────────────────────────────────────────── */
+.main-nav {
+    background: var(--color-dark);
+    padding: 0.75rem 0;
+}
+
+.main-nav .nav-link {
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.96rem;
+    letter-spacing: 0.02em;
+}
+
+.main-nav .nav-link.active,
+.main-nav .nav-link:hover {
+    color: var(--color-highlight);
+}
+
+.custom-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.custom-toggler .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ── Modales de acceso ─────────────────────────────────────────── */
+.auth-modal .modal-content {
+    border: 0;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: linear-gradient(180deg, #ffffff 0%, #f7f8f2 100%);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+}
+
+.auth-modal .modal-header {
+    position: relative;
+    padding: 1.25rem 1.5rem 1rem;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.08);
+    background: #fff;
+}
+
+.auth-modal .modal-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 6px;
+    background: var(--color-highlight);
+}
+
+.auth-modal__title {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-dark);
+}
+
+.auth-modal__body {
+    padding: 1.5rem;
+}
+
+.auth-modal__intro {
+    margin-bottom: 1rem;
+    color: var(--color-muted);
+    font-size: 0.96rem;
+}
+
+.auth-modal .form-label {
+    font-weight: 700;
+    color: var(--color-dark);
+    margin-bottom: 0.45rem;
+}
+
+.auth-modal .form-control {
+    min-height: 52px;
+    border-radius: 0.95rem;
+    border: 1px solid #d8dce0;
+    background: #fff;
+    padding-inline: 1rem;
+    color: var(--color-dark);
+}
+
+.auth-modal .form-control:focus {
+    border-color: #bfd500;
+    box-shadow: 0 0 0 0.22rem rgba(215, 242, 5, 0.22);
+}
+
+.auth-modal .btn-close {
+    opacity: 1;
+}
+
+.auth-modal__footer {
+    border-top: 1px solid rgba(5, 5, 5, 0.08);
+    padding: 1rem 1.5rem 1.4rem;
+    background: #fff;
+}
+
+.auth-modal__primary {
+    border: none;
+    border-radius: 0.9rem;
+    background: var(--color-highlight);
+    color: var(--color-dark);
+    font-weight: 800;
+    padding: 0.85rem 1.4rem;
+}
+
+.auth-modal__primary:hover,
+.auth-modal__primary:focus {
+    background: #ecff75;
+    color: var(--color-dark);
+}
+
+.auth-modal__secondary {
+    border-width: 2px;
+    border-color: #d8dce0;
+    color: var(--color-dark);
+    border-radius: 0.9rem;
+    font-weight: 700;
+    padding: 0.85rem 1.2rem;
+}
+
+.auth-modal__secondary:hover,
+.auth-modal__secondary:focus {
+    background: #f2f3ed;
+    border-color: #c8cec4;
+    color: var(--color-dark);
+}
+
+.auth-modal .modal-dialog {
+    max-width: 520px;
+}
+
+.auth-modal .modal-footer > * {
+    margin: 0;
+}
+
+@media (max-width: 575.98px) {
+    .auth-modal .modal-dialog {
+        margin: 1rem;
+    }
+
+    .auth-modal__footer {
+        flex-direction: column;
+    }
+
+    .auth-modal__footer .btn {
+        width: 100%;
+    }
+}
+
+/* ── Responsive del header ────────────────────────────────────── */
+@media (max-width: 991.98px) {
+    .topbar__inner,
+    .branding-bar__inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .topbar__contact {
+        flex-wrap: wrap;
+        font-size: 1rem;
+    }
+
+    .brand-mark {
+        font-size: 2.7rem;
+    }
+
+    .topbar__actions {
+        width: 100%;
+    }
+
+    .topbar__actions .btn {
+        width: 100%;
+    }
+
+    .divider {
+        display: none;
+    }
+}

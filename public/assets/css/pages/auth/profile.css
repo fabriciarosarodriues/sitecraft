@@ -1,0 +1,182 @@
+/* =================================================================
+   Profile · Página de perfil del usuario
+   ================================================================= */
+
+/* ── Header del perfil ──────────────────────────────────────────── */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(135deg, #050505 0%, #1a1a1a 100%);
+    padding: 2rem;
+    border-radius: 1rem;
+    color: #fff;
+}
+
+.profile-header__avatar {
+    font-size: 4rem;
+    color: #d7f205;
+    flex-shrink: 0;
+}
+
+.profile-header__info {
+    flex: 1;
+}
+
+.profile-header__name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: #fff;
+}
+
+.profile-header__email {
+    color: #bbb;
+    font-size: 0.95rem;
+    margin: 0 0 1rem 0;
+}
+
+.profile-header__roles {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+/* ── Card de perfil ────────────────────────────────────────────── */
+.profile-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-card__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #050505;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* ── Información ──────────────────────────────────────────────── */
+.profile-info {
+    margin-bottom: 2rem;
+}
+
+.profile-info__row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    align-items: center;
+}
+
+.profile-info__row:last-child {
+    border-bottom: none;
+}
+
+.profile-info__label {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.profile-info__value {
+    color: #050505;
+    font-size: 0.95rem;
+}
+
+/* ── Acciones ─────────────────────────────────────────────────── */
+.profile-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-actions .btn {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* ── Quick Access ─────────────────────────────────────────────── */
+.profile-quick-access {
+    background: #f8ffe0;
+    border-radius: 1rem;
+    padding: 2rem;
+}
+
+.profile-quick-access__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #050505;
+    margin-bottom: 1.5rem;
+}
+
+.quick-access-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #050505;
+    min-height: 120px;
+}
+
+.quick-access-card:hover {
+    border-color: #d7f205;
+    box-shadow: 0 4px 12px rgba(215, 242, 5, 0.2);
+    transform: translateY(-2px);
+}
+
+.quick-access-card i {
+    font-size: 1.8rem;
+    color: #d7f205;
+}
+
+.quick-access-card span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* ── Logout ───────────────────────────────────────────────────── */
+.profile-logout .btn {
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    min-height: 48px;
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .profile-info__row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .profile-info__label {
+        font-size: 0.8rem;
+        color: #999;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions .btn {
+        width: 100%;
+    }
+}
